@@ -1,2 +1,2 @@
-# Welcome to My Jekyll Site
-This is my awesome GitHub Pages site using Jekyll!
+# Welcome to My GitHub Pages Site
+This is my homepage using GitHub Pages and Jekyll.
