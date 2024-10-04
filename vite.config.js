@@ -1,17 +1,21 @@
-import { sveltekit } from '@sveltejs/kit/vite';
-import basicSsl from '@vitejs/plugin-basic-ssl';
+import preprocess from "svelte-preprocess";
+import adapter from '@sveltejs/adapter-node';
 
-/** @type {import('vite').UserConfig} */
+/** @type {import('@sveltejs/kit').Config} */
 const config = {
-	plugins: [
-		sveltekit(),
-		// basicSsl()
-	],
-	server: {
-		host: true,
-		// https: true,
-		port: 3000
-	}
+  kit: {
+    adapter: adapter({ out: 'build' }),
+    // Set the base path for GitHub Pages
+    paths: {
+      base: process.env.NODE_ENV === 'production' ? '/NihilityStudio.github.io' : '',
+    },
+  },
+
+  preprocess: [
+    preprocess({
+      postcss: true,
+    }),
+  ],
 };
 
 export default config;
