@@ -6,6 +6,8 @@
     "build": "vite build",
     "package": "svelte-kit package",
     "preview": "vite preview"
+	"predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@jhubbardsf/svelte-sortablejs": "^1.1.0",
@@ -50,10 +52,5 @@
     "svelte-range-slider-pips": "^2.0.3",
     "tailwindcss-scoped-groups": "^2.0.0"
   }
-  {
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  }
-}
+  
 }
