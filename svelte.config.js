@@ -1,18 +1,21 @@
-import preprocess from "svelte-preprocess";
+import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-node';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  kit: {
-    adapter: adapter({ out: 'build' })
-    
-  },
+  preprocess: preprocess({
+    postcss: true,
+  }),
 
-  preprocess: [
-    preprocess({
-      postcss: true,
-    }),
-  ],
+  kit: {
+    // Set the adapter to build for Node
+    adapter: adapter({ out: 'build' }),
+    
+    // Set the base path for GitHub Pages
+    paths: {
+      base: process.env.NODE_ENV === 'production' ? '/<your-repo-name>' : '',
+    },
+  },
 };
 
 export default config;
