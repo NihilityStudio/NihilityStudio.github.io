@@ -13,7 +13,7 @@ const config = {
     
     // Set the base path for GitHub Pages
     paths: {
-      base: process.env.NODE_ENV === 'production' ? '/<your-repo-name>' : '',
+      base: process.env.NODE_ENV === 'production' ? '/NihilityStudio.github.io' : '',
     },
   },
 };
