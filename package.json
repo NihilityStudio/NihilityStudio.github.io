@@ -50,4 +50,10 @@
     "svelte-range-slider-pips": "^2.0.3",
     "tailwindcss-scoped-groups": "^2.0.0"
   }
+  {
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  }
+}
 }
