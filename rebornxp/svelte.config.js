@@ -1,11 +1,20 @@
 import preprocess from "svelte-preprocess";
-import adapter from '@sveltejs/adapter-node';
+import adapterStatic from "@sveltejs/adapter-static";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {
-    adapter: adapter({ out: 'build' })
-    
+    adapter: adapterStatic({
+      // Default output folder for static sites
+      pages: "build",
+      assets: "build",
+      fallback: null, // If you're using single-page app routing, set this to '200.html'
+    }),
+
+    // Set the base path to match your GitHub Pages repo
+    paths: {
+      base: "/rebornxp", // Change this to match your repo name
+    },
   },
 
   preprocess: [
