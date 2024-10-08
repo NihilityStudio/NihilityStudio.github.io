@@ -2420,80 +2420,80 @@ function set_paths(paths) {
 }
 function set_prerendering(value) {
 }
-const template = ({ head, body, assets: assets2, nonce }) => '<!DOCTYPE html>\n<html lang="en" data-theme="" style="background:black">\n	<head>\n		<meta charset="utf-8" />\n		<title>Microsoft Windows XP Professional</title>\n		<link rel="icon" href="' + assets2 + '/favicon.png" />\n		<link rel="stylesheet" id="theme" href=""/>\n		<meta name="viewport" content="width=device-width,initial-scale=1" />\n		<meta name="description" content="Yet another Windows XP in the browser, but with a File System and comes with it, Programs."/>\n		' + head + '\n\n		<style>\n			html, body {\n			margin: 0;\n			width: 100%;\n			height: 100%;\n			overflow: hidden;\n			}\n\n			section {\n			width: 100vw;\n			height: 100vh;\n			}\n\n			p {\n			margin: 0;\n			line-height: 1.5em;\n			}\n\n			.blink {\n			animation: blink-animation 1s steps(5, start) infinite;\n			-webkit-animation: blink-animation 1s steps(5, start) infinite;\n			}\n\n			@keyframes blink-animation {\n			to {\n				visibility: hidden;\n			}\n			}\n			@-webkit-keyframes blink-animation {\n			to {\n				visibility: hidden;\n			}\n			}\n			.actions {\n			position: fixed;\n			bottom: 0;\n			width: 100%;\n			}\n\n			.float-right {\n			position: fixed;\n			bottom: 0;\n			right: 0;\n			padding-right: 2em;\n			}\n\n			#bios {\n			display: block;\n			background: #000;\n			color: #ccc;\n			font-family: monospace;\n			}\n\n			#loader {\n			display: none;\n			background: #000;\n			color: #ccc;\n			}\n\n			.loader {\n			position: relative;\n			padding-top: 100px;\n			width: 40px;\n			margin: auto;\n			}\n			.loader .circle {\n			position: absolute;\n			width: 38px;\n			height: 38px;\n			opacity: 0;\n			transform: rotate(225deg);\n			animation-iteration-count: infinite;\n			animation-name: orbit;\n			animation-duration: 5.5s;\n			}\n			.loader .circle:after {\n			content: "";\n			position: absolute;\n			width: 5px;\n			height: 5px;\n			border-radius: 5px;\n			background: #fff;\n			/* Pick a color */\n			}\n			.loader .circle:nth-child(2) {\n			animation-delay: 240ms;\n			}\n			.loader .circle:nth-child(3) {\n			animation-delay: 480ms;\n			}\n			.loader .circle:nth-child(4) {\n			animation-delay: 720ms;\n			}\n			.loader .circle:nth-child(5) {\n			animation-delay: 960ms;\n			}\n\n			@keyframes orbit {\n			0% {\n				transform: rotate(225deg);\n				opacity: 1;\n				animation-timing-function: ease-out;\n			}\n			7% {\n				transform: rotate(345deg);\n				animation-timing-function: linear;\n			}\n			30% {\n				transform: rotate(455deg);\n				animation-timing-function: ease-in-out;\n			}\n			39% {\n				transform: rotate(690deg);\n				animation-timing-function: linear;\n			}\n			70% {\n				transform: rotate(815deg);\n				opacity: 1;\n				animation-timing-function: ease-out;\n			}\n			75% {\n				transform: rotate(945deg);\n				animation-timing-function: ease-out;\n			}\n			76% {\n				transform: rotate(945deg);\n				opacity: 0;\n			}\n			100% {\n				transform: rotate(945deg);\n				opacity: 0;\n			}\n			}\n		</style>\n		\n	</head>\n	<body>\n\n		<div id="iframe-preload" style="position: absolute;inset: 0;display: none;"></div>\n		\n		<div style="position:absolute;inset:0;">' + body + `</div>
-
-		<div id="pos_loader" style="position:absolute;inset:0;padding:10px;background-color:black;font-size: 18px;">
-			<!-- Bootup by Kyle Stephens -->
-			<!-- https://codepen.io/kylestephens/pen/zYOgLrr -->
-			<section id="bios">
-				<p>PhoenixBIOS 1.4 Release 6.0</p>
-				<p>Copyright 1985-2001 Phoenix Technologies Ltd.</p>
-				<p>All Rights Reserved</p>
-				<p>Copyright 2001-2003 VMware. Inc.</p>
-				<p>VMware BIOS build 314</p>
-				<br />
-				<p>ATAPI CD-ROM: VMware Virtual IDECDROM Drive</p>
-				<p>Initializing <span class="blink">...</span></p>
-			  
-			  </section>
-			  
-			<section id="loader">
-				<div class='loader'>
-					<div class='circle'></div>
-					<div class='circle'></div>
-					<div class='circle'></div>
-					<div class='circle'></div>
-					<div class='circle'></div>
-				</div>
-			</section>
-		</div>
-
-		<script>
-			window.addEventListener('contextmenu', (event) => {
-				event.preventDefault();
-			})
-		<\/script>
-		
-		<script src="//unpkg.com/loadjs@latest/dist/loadjs.min.js"><\/script>
-
-		<script>
-			function load_assets(assets, completion){
-				Promise
-				.all(assets.map(asset=>fetch(asset)))
-				.then(responses =>
-					Promise.all(responses.map(res => res.blob()))
-				).then(completion);
-			}
-
-			load_assets([
-				'/images/xp_loading_logo.jpg',
-				'/images/xp_loading_mslogo.jpg',
-				'/images/xp_logo_horizontal.png',
-				'/images/xp_logo.png',
-				'/fonts/levi.ttf', 
-				'/fonts/ms_sans_serif_bold.ttf', 
-				'/fonts/ms_sans_serif.ttf'], () => {
-				document.querySelector('#pos_loader').style.display = 'none';
-			})
-
-		<\/script>
-
-		<script>
-
-			document.addEventListener('dragover', function(e){
-				e.preventDefault();
-				console.log('dragover');
-			})
-		
-			document.addEventListener('drop', function(e){
-				e.preventDefault();
-				console.log('drop');
-			})
-		<\/script>
-
-	</body>
-</html>
-
+const template = ({ head, body, assets: assets2, nonce }) => '<!DOCTYPE html>\r\n<html lang="en" data-theme="" style="background:black">\r\n	<head>\r\n		<meta charset="utf-8" />\r\n		<title>Microsoft Windows XP Professional</title>\r\n		<link rel="icon" href="' + assets2 + '/favicon.png" />\r\n		<link rel="stylesheet" id="theme" href=""/>\r\n		<meta name="viewport" content="width=device-width,initial-scale=1" />\r\n		<meta name="description" content="Yet another Windows XP in the browser, but with a File System and comes with it, Programs."/>\r\n		' + head + '\r\n\r\n		<style>\r\n			html, body {\r\n			margin: 0;\r\n			width: 100%;\r\n			height: 100%;\r\n			overflow: hidden;\r\n			}\r\n\r\n			section {\r\n			width: 100vw;\r\n			height: 100vh;\r\n			}\r\n\r\n			p {\r\n			margin: 0;\r\n			line-height: 1.5em;\r\n			}\r\n\r\n			.blink {\r\n			animation: blink-animation 1s steps(5, start) infinite;\r\n			-webkit-animation: blink-animation 1s steps(5, start) infinite;\r\n			}\r\n\r\n			@keyframes blink-animation {\r\n			to {\r\n				visibility: hidden;\r\n			}\r\n			}\r\n			@-webkit-keyframes blink-animation {\r\n			to {\r\n				visibility: hidden;\r\n			}\r\n			}\r\n			.actions {\r\n			position: fixed;\r\n			bottom: 0;\r\n			width: 100%;\r\n			}\r\n\r\n			.float-right {\r\n			position: fixed;\r\n			bottom: 0;\r\n			right: 0;\r\n			padding-right: 2em;\r\n			}\r\n\r\n			#bios {\r\n			display: block;\r\n			background: #000;\r\n			color: #ccc;\r\n			font-family: monospace;\r\n			}\r\n\r\n			#loader {\r\n			display: none;\r\n			background: #000;\r\n			color: #ccc;\r\n			}\r\n\r\n			.loader {\r\n			position: relative;\r\n			padding-top: 100px;\r\n			width: 40px;\r\n			margin: auto;\r\n			}\r\n			.loader .circle {\r\n			position: absolute;\r\n			width: 38px;\r\n			height: 38px;\r\n			opacity: 0;\r\n			transform: rotate(225deg);\r\n			animation-iteration-count: infinite;\r\n			animation-name: orbit;\r\n			animation-duration: 5.5s;\r\n			}\r\n			.loader .circle:after {\r\n			content: "";\r\n			position: absolute;\r\n			width: 5px;\r\n			height: 5px;\r\n			border-radius: 5px;\r\n			background: #fff;\r\n			/* Pick a color */\r\n			}\r\n			.loader .circle:nth-child(2) {\r\n			animation-delay: 240ms;\r\n			}\r\n			.loader .circle:nth-child(3) {\r\n			animation-delay: 480ms;\r\n			}\r\n			.loader .circle:nth-child(4) {\r\n			animation-delay: 720ms;\r\n			}\r\n			.loader .circle:nth-child(5) {\r\n			animation-delay: 960ms;\r\n			}\r\n\r\n			@keyframes orbit {\r\n			0% {\r\n				transform: rotate(225deg);\r\n				opacity: 1;\r\n				animation-timing-function: ease-out;\r\n			}\r\n			7% {\r\n				transform: rotate(345deg);\r\n				animation-timing-function: linear;\r\n			}\r\n			30% {\r\n				transform: rotate(455deg);\r\n				animation-timing-function: ease-in-out;\r\n			}\r\n			39% {\r\n				transform: rotate(690deg);\r\n				animation-timing-function: linear;\r\n			}\r\n			70% {\r\n				transform: rotate(815deg);\r\n				opacity: 1;\r\n				animation-timing-function: ease-out;\r\n			}\r\n			75% {\r\n				transform: rotate(945deg);\r\n				animation-timing-function: ease-out;\r\n			}\r\n			76% {\r\n				transform: rotate(945deg);\r\n				opacity: 0;\r\n			}\r\n			100% {\r\n				transform: rotate(945deg);\r\n				opacity: 0;\r\n			}\r\n			}\r\n		</style>\r\n		\r\n	</head>\r\n	<body>\r\n\r\n		<div id="iframe-preload" style="position: absolute;inset: 0;display: none;"></div>\r\n		\r\n		<div style="position:absolute;inset:0;">' + body + `</div>\r
+\r
+		<div id="pos_loader" style="position:absolute;inset:0;padding:10px;background-color:black;font-size: 18px;">\r
+			<!-- Bootup by Kyle Stephens -->\r
+			<!-- https://codepen.io/kylestephens/pen/zYOgLrr -->\r
+			<section id="bios">\r
+				<p>PhoenixBIOS 1.4 Release 6.0</p>\r
+				<p>Copyright 1985-2001 Phoenix Technologies Ltd.</p>\r
+				<p>All Rights Reserved</p>\r
+				<p>Copyright 2001-2003 VMware. Inc.</p>\r
+				<p>VMware BIOS build 314</p>\r
+				<br />\r
+				<p>ATAPI CD-ROM: VMware Virtual IDECDROM Drive</p>\r
+				<p>Initializing <span class="blink">...</span></p>\r
+			  \r
+			  </section>\r
+			  \r
+			<section id="loader">\r
+				<div class='loader'>\r
+					<div class='circle'></div>\r
+					<div class='circle'></div>\r
+					<div class='circle'></div>\r
+					<div class='circle'></div>\r
+					<div class='circle'></div>\r
+				</div>\r
+			</section>\r
+		</div>\r
+\r
+		<script>\r
+			window.addEventListener('contextmenu', (event) => {\r
+				event.preventDefault();\r
+			})\r
+		<\/script>\r
+		\r
+		<script src="//unpkg.com/loadjs@latest/dist/loadjs.min.js"><\/script>\r
+\r
+		<script>\r
+			function load_assets(assets, completion){\r
+				Promise\r
+				.all(assets.map(asset=>fetch(asset)))\r
+				.then(responses =>\r
+					Promise.all(responses.map(res => res.blob()))\r
+				).then(completion);\r
+			}\r
+\r
+			load_assets([\r
+				'/images/xp_loading_logo.jpg',\r
+				'/images/xp_loading_mslogo.jpg',\r
+				'/images/xp_logo_horizontal.png',\r
+				'/images/xp_logo.png',\r
+				'/fonts/levi.ttf', \r
+				'/fonts/ms_sans_serif_bold.ttf', \r
+				'/fonts/ms_sans_serif.ttf'], () => {\r
+				document.querySelector('#pos_loader').style.display = 'none';\r
+			})\r
+\r
+		<\/script>\r
+\r
+		<script>\r
+\r
+			document.addEventListener('dragover', function(e){\r
+				e.preventDefault();\r
+				console.log('dragover');\r
+			})\r
+		\r
+			document.addEventListener('drop', function(e){\r
+				e.preventDefault();\r
+				console.log('drop');\r
+			})\r
+		<\/script>\r
+\r
+	</body>\r
+</html>\r
+\r
 `;
 let read = null;
 set_paths({ "base": "", "assets": "" });
@@ -2550,7 +2550,7 @@ class Server {
       throw new Error("The first argument to server.respond must be a Request object. See https://github.com/sveltejs/kit/pull/3384 for details");
     }
     if (!this.options.hooks) {
-      const module = await import('./chunks/hooks-88b6e47b-347f0259.js');
+      const module = await import('./chunks/hooks-7ef1f915-f2a24bd3.js');
       this.options.hooks = {
         getSession: module.getSession || (() => ({})),
         handle: module.handle || (({ event, resolve: resolve2 }) => resolve2(event)),
