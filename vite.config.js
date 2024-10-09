@@ -15,3 +15,9 @@ const config = {
 };
 
 export default config;
+
+export default {
+  build: {
+    outDir: 'build', // or 'dist' or 'public', depending on your setup
+  },
+};
